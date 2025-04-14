@@ -1,3 +1,65 @@
+// server.js
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+const users = []; // In-memory store (use OracleDB/MySQL in production)
+
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(express.static("public"));
+
+// Register route
+app.post("/api/register", (req, res) => {
+  const { name, phone, idnumber, country, password } = req.body;
+  if (!name || !phone || !idnumber || !country || !password) {
+    return res.status(400).json({ message: "Missing fields" });
+  }
+
+  const userExists = users.find((u) => u.phone === phone);
+  if (userExists) {
+    return res.status(400).json({ message: "User already registered" });
+  }
+
+  const initialBalance = country.toLowerCase() === "foreign" ? 0 : 100;
+  const newUser = { name, phone, idnumber, country, password, balance: initialBalance, transactions: [] };
+  users.push(newUser);
+
+  res.status(200).json({ message: "Registered successfully", wallet: newUser });
+});
+
+// Login route
+app.post("/api/login", (req, res) => {
+  const { phone, password } = req.body;
+  const user = users.find((u) => u.phone === phone && u.password === password);
+
+  if (!user) {
+    return res.status(401).json({ message: "Invalid credentials" });
+  }
+  res.status(200).json({ message: "Login successful", wallet: user });
+});
+
+// Currency conversion mock route
+app.get("/api/exchange", (req, res) => {
+  const rates = {
+    USD: 1,
+    ZAR: 18.6,
+    BWP: 13.2,
+    MZN: 64.4,
+    TZS: 2530,
+  };
+  res.status(200).json(rates);
+});
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`SADC CBDC Backend running at http://localhost:${PORT}`);
+});
+
+
 
 const express = require('express');
 const cors = require('cors');
