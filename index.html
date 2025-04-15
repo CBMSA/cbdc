@@ -1,78 +1,65 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SADC CBDC WebApp</title>
-  <link rel="stylesheet" href="styles.css" >
   <style>
+    /* General Styles */
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f4f6f9;
       color: #2d3436;
+      text-align: center;
     }
+
+    /* Header Styles */
     header {
       background-color: #003366;
       color: white;
       padding: 20px 40px;
       text-align: center;
     }
+
     header h1 {
       margin: 0;
     }
-    nav {
-      background-color: #00509e;
-      padding: 10px 40px;
-      display: flex;
-      gap: 20px;
+
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.2em;
     }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
+
+    /* Main Content Styles */
+    #main {
+      padding: 50px 20px;
     }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px;
-    }
-    h2 {
+
+    #main h1 {
       color: #00509e;
-      margin-top: 40px;
     }
-    ul {
-      margin-left: 20px;
+
+    #main p {
+      margin: 20px 0;
+      font-size: 1.1em;
     }
-    .faq-section {
-      margin-top: 30px;
-    }
-    .faq-question {
-      font-weight: bold;
-      color: #2c3e50;
-      margin-top: 20px;
-    }
-    .faq-answer {
-      color: #636e72;
-      margin-bottom: 10px;
-    }
-    .cta {
-      background-color: #dfe6e9;
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 30px;
-    }
-    .cta a {
-      display: inline-block;
-      background-color: #00509e;
+
+    #main a {
       color: white;
+      background-color: #00509e;
       padding: 10px 20px;
       text-decoration: none;
       border-radius: 5px;
-      margin-top: 10px;
+      margin: 10px;
     }
+
+    #main a:hover {
+      background-color: #003366;
+    }
+
+    /* Footer Styles */
     footer {
       background-color: #2d3436;
       color: #b2bec3;
@@ -80,27 +67,23 @@
       text-align: center;
       font-size: 0.9em;
     }
-    .highlight {
-      background: #e3f2fd;
-      border-left: 5px solid #1a73e8;
-      padding: 15px;
-      margin: 20px 0;
-    }
   </style>
 </head>
-
 <body>
-  <div id="main" style="text-align: center; padding: 50px;">
+  <header>
+    <h1>SADC Digital Currency – Official CBDC Portal</h1>
+    <p>Trusted Digital Currency for Southern Africa</p>
+  </header>
+  <div id="main">
     <h1>Welcome to the SADC Region CBDC Platform</h1>
     <p>This platform enables registration and use of Central Bank Digital Currency across SADC countries.</p>
     <a href="LoginScreen.html">Login</a> | 
-    <a href="RegistrationScreen.html">Register</a>
-
-  <h1>SADC Digital Currency – Official CBDC Portal</h1>
-  <p>Trusted Digital Currency for Southern Africa</p>
-</header>
-
+    <a href="RegistrationScreen.html">Register</a> 
+    <a href="Home.html">Home</a>
+    <a href="Transactions.html">Transactions</a>
   </div>
+  <footer>
+    <p>&copy; 2025 SADC CBDC. All Rights Reserved.</p>
+  </footer>
 </body>
-</html>
-
+</html
